@@ -1,8 +1,9 @@
+import 'package:bookly/modules/home/models/book.dart';
+import 'package:bookly/modules/home/models/book_response.dart';
 import 'package:dartz/dartz.dart';
 
 import 'package:bookly/core/errors/failures.dart';
 import 'package:bookly/core/utils/api_service.dart';
-import 'package:bookly/modules/home/models/book/book.model.dart';
 import 'package:bookly/modules/home/services/home_service.dart';
 import 'package:dio/dio.dart';
 
@@ -15,11 +16,9 @@ class HomeServiceImpl implements HomeService {
   Future<Either<Failure, List<Book>>> fetchNewestBooks() async {
     try {
       final data = await apiService.get(endPoint: 'volumes?q=*&orderBy=newest');
+      final response = BookResponse.fromJson(data);
 
-      final books =
-          (data['items'] as List).map((item) => Book.fromJson(item)).toList();
-
-      return Right(books);
+      return Right(response.items ?? []);
     } on DioException catch (e) {
       return Left(ServerFailure.fromDioException(e));
     } catch (e) {
@@ -31,11 +30,8 @@ class HomeServiceImpl implements HomeService {
   Future<Either<Failure, List<Book>>> fetchFeaturedBooks() async {
     try {
       final data = await apiService.get(endPoint: 'volumes?q=*');
-
-      final books =
-          (data['items'] as List).map((item) => Book.fromJson(item)).toList();
-
-      return Right(books);
+      final response = BookResponse.fromJson(data);
+      return Right(response.items ?? []);
     } on DioException catch (e) {
       return Left(ServerFailure.fromDioException(e));
     } catch (e) {

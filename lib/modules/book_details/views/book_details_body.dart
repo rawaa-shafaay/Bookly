@@ -56,7 +56,10 @@ class BookDetailsBody extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: width * .27),
-      child: const BookCoverImage(),
+      child: const BookCoverImage(
+        imageUrl:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCHo3CkaH0oRY3MvrEN0xgn-x_Lsn3Lm3lVQ&s',
+      ),
     );
   }
 
