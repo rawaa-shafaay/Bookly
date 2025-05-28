@@ -16,7 +16,7 @@ class FeaturedBooksListView extends StatelessWidget {
           if (state is FeaturedBooksLoading) {
             return const Center(child: CircularProgressIndicator());
           } else if (state is FeaturedBooksFailure) {
-            return ErrorMessage(message: state.errMessage);
+            return ErrorMessage(message: state.errMessage, onRetry: () {});
           } else if (state is FeaturedBooksSuccess) {
             final books = state.books;
 

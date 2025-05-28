@@ -7,18 +7,33 @@ class BookCoverImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(aspectRatio: 2.5 / 4, child: _buildBackgroundImage());
+    return AspectRatio(
+      aspectRatio: 2.5 / 4,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(16),
+        child:
+            imageUrl.isEmpty
+                ? _buildPlaceholder()
+                : Image.network(
+                  imageUrl,
+                  fit: BoxFit.cover,
+                  loadingBuilder: (context, child, loadingProgress) {
+                    if (loadingProgress == null) return child;
+                    return const Center(child: CircularProgressIndicator());
+                  },
+                  errorBuilder: (context, error, stackTrace) {
+                    return _buildPlaceholder();
+                  },
+                ),
+      ),
+    );
   }
 
-  Widget _buildBackgroundImage() {
+  Widget _buildPlaceholder() {
     return Container(
-      margin: const EdgeInsets.all(4),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        image: DecorationImage(
-          image: NetworkImage(imageUrl),
-          fit: BoxFit.cover,
-        ),
+      color: Colors.grey.shade300,
+      child: const Center(
+        child: Icon(Icons.broken_image, size: 40, color: Colors.grey),
       ),
     );
   }
