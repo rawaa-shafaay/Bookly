@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class BookCoverImage extends StatelessWidget {
@@ -14,16 +15,14 @@ class BookCoverImage extends StatelessWidget {
         child:
             imageUrl.isEmpty
                 ? _buildPlaceholder()
-                : Image.network(
-                  imageUrl,
+                : CachedNetworkImage(
+                  imageUrl: imageUrl,
                   fit: BoxFit.cover,
-                  loadingBuilder: (context, child, loadingProgress) {
-                    if (loadingProgress == null) return child;
-                    return const Center(child: CircularProgressIndicator());
-                  },
-                  errorBuilder: (context, error, stackTrace) {
-                    return _buildPlaceholder();
-                  },
+                  placeholder:
+                      (context, url) =>
+                          const Center(child: CircularProgressIndicator()),
+
+                  errorWidget: (context, url, error) => _buildPlaceholder(),
                 ),
       ),
     );
