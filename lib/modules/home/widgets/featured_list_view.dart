@@ -1,3 +1,4 @@
+import 'package:bookly/core/widgets/error_message.dart';
 import 'package:bookly/modules/home/cubit/featured_books_cubit.dart';
 import 'package:bookly/modules/home/widgets/book_cover_image.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class FeaturedBooksListView extends StatelessWidget {
           if (state is FeaturedBooksLoading) {
             return const Center(child: CircularProgressIndicator());
           } else if (state is FeaturedBooksFailure) {
-            return const Center(child: Text('Failed to load books.'));
+            return ErrorMessage(message: state.errMessage);
           } else if (state is FeaturedBooksSuccess) {
             final books = state.books;
 
@@ -24,12 +25,13 @@ class FeaturedBooksListView extends StatelessWidget {
               itemCount: books.length,
               itemBuilder: (context, index) {
                 final book = books[index];
+                final thumbnailUrl =
+                    book.volumeInfo?.imageLinks?.thumbnail ?? '';
+
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 6),
 
-                  child: BookCoverImage(
-                    imageUrl: book.volumeInfo?.imageLinks?.thumbnail ?? '',
-                  ),
+                  child: BookCoverImage(imageUrl: thumbnailUrl),
                 );
               },
             );

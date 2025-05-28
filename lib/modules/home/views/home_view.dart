@@ -14,9 +14,9 @@ class HomeView extends StatelessWidget {
       providers: [
         BlocProvider(
           create:
-              (context) => FeaturedBooksCubit(
-                getIt.get<HomeService>()..fetchFeaturedBooks(),
-              ),
+              (_) =>
+                  FeaturedBooksCubit(getIt.get<HomeService>())
+                    ..fetchFeaturedBooks(),
         ),
       ],
       child: SafeArea(child: Scaffold(body: HomeBody())),
