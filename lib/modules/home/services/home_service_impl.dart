@@ -13,7 +13,7 @@ class HomeServiceImpl implements HomeService {
   HomeServiceImpl(this.apiService);
 
   @override
-  Future<Either<Failure, List<Book>>> fetchNewestBooks() async {
+  Future<Either<Failure, List<Book>>> fetchBestSellerBooks() async {
     try {
       final data = await apiService.get(endPoint: 'volumes?q=*&orderBy=newest');
       final response = BookResponse.fromJson(data);

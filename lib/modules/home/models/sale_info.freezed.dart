@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SaleInfo {
 
- String? get country; String? get saleability; bool? get isEbook;
+ String? get country; String? get saleability; bool? get isEbook; RetailPrice? get retailPrice;
 /// Create a copy of SaleInfo
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +29,16 @@ $SaleInfoCopyWith<SaleInfo> get copyWith => _$SaleInfoCopyWithImpl<SaleInfo>(thi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SaleInfo&&(identical(other.country, country) || other.country == country)&&(identical(other.saleability, saleability) || other.saleability == saleability)&&(identical(other.isEbook, isEbook) || other.isEbook == isEbook));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SaleInfo&&(identical(other.country, country) || other.country == country)&&(identical(other.saleability, saleability) || other.saleability == saleability)&&(identical(other.isEbook, isEbook) || other.isEbook == isEbook)&&(identical(other.retailPrice, retailPrice) || other.retailPrice == retailPrice));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,country,saleability,isEbook);
+int get hashCode => Object.hash(runtimeType,country,saleability,isEbook,retailPrice);
 
 @override
 String toString() {
-  return 'SaleInfo(country: $country, saleability: $saleability, isEbook: $isEbook)';
+  return 'SaleInfo(country: $country, saleability: $saleability, isEbook: $isEbook, retailPrice: $retailPrice)';
 }
 
 
@@ -49,11 +49,11 @@ abstract mixin class $SaleInfoCopyWith<$Res>  {
   factory $SaleInfoCopyWith(SaleInfo value, $Res Function(SaleInfo) _then) = _$SaleInfoCopyWithImpl;
 @useResult
 $Res call({
- String? country, String? saleability, bool? isEbook
+ String? country, String? saleability, bool? isEbook, RetailPrice? retailPrice
 });
 
 
-
+$RetailPriceCopyWith<$Res>? get retailPrice;
 
 }
 /// @nodoc
@@ -66,15 +66,28 @@ class _$SaleInfoCopyWithImpl<$Res>
 
 /// Create a copy of SaleInfo
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? country = freezed,Object? saleability = freezed,Object? isEbook = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? country = freezed,Object? saleability = freezed,Object? isEbook = freezed,Object? retailPrice = freezed,}) {
   return _then(_self.copyWith(
 country: freezed == country ? _self.country : country // ignore: cast_nullable_to_non_nullable
 as String?,saleability: freezed == saleability ? _self.saleability : saleability // ignore: cast_nullable_to_non_nullable
 as String?,isEbook: freezed == isEbook ? _self.isEbook : isEbook // ignore: cast_nullable_to_non_nullable
-as bool?,
+as bool?,retailPrice: freezed == retailPrice ? _self.retailPrice : retailPrice // ignore: cast_nullable_to_non_nullable
+as RetailPrice?,
   ));
 }
+/// Create a copy of SaleInfo
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RetailPriceCopyWith<$Res>? get retailPrice {
+    if (_self.retailPrice == null) {
+    return null;
+  }
 
+  return $RetailPriceCopyWith<$Res>(_self.retailPrice!, (value) {
+    return _then(_self.copyWith(retailPrice: value));
+  });
+}
 }
 
 
@@ -82,12 +95,13 @@ as bool?,
 @JsonSerializable()
 
 class _SaleInfo implements SaleInfo {
-  const _SaleInfo({this.country, this.saleability, this.isEbook});
+  const _SaleInfo({this.country, this.saleability, this.isEbook, this.retailPrice});
   factory _SaleInfo.fromJson(Map<String, dynamic> json) => _$SaleInfoFromJson(json);
 
 @override final  String? country;
 @override final  String? saleability;
 @override final  bool? isEbook;
+@override final  RetailPrice? retailPrice;
 
 /// Create a copy of SaleInfo
 /// with the given fields replaced by the non-null parameter values.
@@ -102,16 +116,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SaleInfo&&(identical(other.country, country) || other.country == country)&&(identical(other.saleability, saleability) || other.saleability == saleability)&&(identical(other.isEbook, isEbook) || other.isEbook == isEbook));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SaleInfo&&(identical(other.country, country) || other.country == country)&&(identical(other.saleability, saleability) || other.saleability == saleability)&&(identical(other.isEbook, isEbook) || other.isEbook == isEbook)&&(identical(other.retailPrice, retailPrice) || other.retailPrice == retailPrice));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,country,saleability,isEbook);
+int get hashCode => Object.hash(runtimeType,country,saleability,isEbook,retailPrice);
 
 @override
 String toString() {
-  return 'SaleInfo(country: $country, saleability: $saleability, isEbook: $isEbook)';
+  return 'SaleInfo(country: $country, saleability: $saleability, isEbook: $isEbook, retailPrice: $retailPrice)';
 }
 
 
@@ -122,11 +136,11 @@ abstract mixin class _$SaleInfoCopyWith<$Res> implements $SaleInfoCopyWith<$Res>
   factory _$SaleInfoCopyWith(_SaleInfo value, $Res Function(_SaleInfo) _then) = __$SaleInfoCopyWithImpl;
 @override @useResult
 $Res call({
- String? country, String? saleability, bool? isEbook
+ String? country, String? saleability, bool? isEbook, RetailPrice? retailPrice
 });
 
 
-
+@override $RetailPriceCopyWith<$Res>? get retailPrice;
 
 }
 /// @nodoc
@@ -139,16 +153,29 @@ class __$SaleInfoCopyWithImpl<$Res>
 
 /// Create a copy of SaleInfo
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? country = freezed,Object? saleability = freezed,Object? isEbook = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? country = freezed,Object? saleability = freezed,Object? isEbook = freezed,Object? retailPrice = freezed,}) {
   return _then(_SaleInfo(
 country: freezed == country ? _self.country : country // ignore: cast_nullable_to_non_nullable
 as String?,saleability: freezed == saleability ? _self.saleability : saleability // ignore: cast_nullable_to_non_nullable
 as String?,isEbook: freezed == isEbook ? _self.isEbook : isEbook // ignore: cast_nullable_to_non_nullable
-as bool?,
+as bool?,retailPrice: freezed == retailPrice ? _self.retailPrice : retailPrice // ignore: cast_nullable_to_non_nullable
+as RetailPrice?,
   ));
 }
 
+/// Create a copy of SaleInfo
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RetailPriceCopyWith<$Res>? get retailPrice {
+    if (_self.retailPrice == null) {
+    return null;
+  }
 
+  return $RetailPriceCopyWith<$Res>(_self.retailPrice!, (value) {
+    return _then(_self.copyWith(retailPrice: value));
+  });
+}
 }
 
 // dart format on

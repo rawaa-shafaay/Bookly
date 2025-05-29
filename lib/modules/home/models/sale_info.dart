@@ -1,3 +1,4 @@
+import 'package:bookly/modules/home/models/retail_price.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'sale_info.freezed.dart';
@@ -9,6 +10,7 @@ abstract class SaleInfo with _$SaleInfo {
     String? country,
     String? saleability,
     bool? isEbook,
+    RetailPrice? retailPrice,
   }) = _SaleInfo;
 
   factory SaleInfo.fromJson(Map<String, dynamic> json) =>

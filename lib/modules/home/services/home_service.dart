@@ -3,6 +3,6 @@ import 'package:bookly/modules/home/models/book.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class HomeService {
-  Future<Either<Failure, List<Book>>> fetchNewestBooks();
+  Future<Either<Failure, List<Book>>> fetchBestSellerBooks();
   Future<Either<Failure, List<Book>>> fetchFeaturedBooks();
 }

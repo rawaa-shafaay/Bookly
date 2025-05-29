@@ -15,7 +15,6 @@ class BookDetailsBody extends StatelessWidget {
 
     return LayoutBuilder(
       builder: (context, constraints) {
-        // We will compare the content height to screen height later
         final contentHeight = constraints.maxHeight;
 
         final shouldScroll = contentHeight > screenHeight;
@@ -34,7 +33,11 @@ class BookDetailsBody extends StatelessWidget {
                   _buildAppBar(),
                   _buildCoverImage(context),
                   _buildTitleAndAuthor(),
-                  const BookRating(mainAxisAlignment: MainAxisAlignment.center),
+                  const BookRating(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    rating: 0,
+                    count: 0,
+                  ),
                   const SizedBox(height: 37),
                   const BookActionButtons(),
                   const SizedBox(height: 50),

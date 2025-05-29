@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$VolumeInfo {
 
- String? get title; String? get subtitle; List<String>? get authors; String? get publisher; String? get publishedDate; String? get description; List<IndustryIdentifier>? get industryIdentifiers; ReadingModes? get readingModes; int? get pageCount; String? get printType; List<String>? get categories; String? get maturityRating; bool? get allowAnonLogging; String? get contentVersion; PanelizationSummary? get panelizationSummary; ImageLinks? get imageLinks; String? get language; String? get previewLink; String? get infoLink; String? get canonicalVolumeLink;
+ String? get title; String? get subtitle; List<String>? get authors; String? get publisher; String? get publishedDate; String? get description; List<IndustryIdentifier>? get industryIdentifiers; ReadingModes? get readingModes; int? get pageCount; String? get printType; List<String>? get categories; String? get maturityRating; bool? get allowAnonLogging; String? get contentVersion; PanelizationSummary? get panelizationSummary; ImageLinks? get imageLinks; String? get language; String? get previewLink; String? get infoLink; String? get canonicalVolumeLink; double? get averageRating; int? get ratingsCount;
 /// Create a copy of VolumeInfo
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +29,16 @@ $VolumeInfoCopyWith<VolumeInfo> get copyWith => _$VolumeInfoCopyWithImpl<VolumeI
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is VolumeInfo&&(identical(other.title, title) || other.title == title)&&(identical(other.subtitle, subtitle) || other.subtitle == subtitle)&&const DeepCollectionEquality().equals(other.authors, authors)&&(identical(other.publisher, publisher) || other.publisher == publisher)&&(identical(other.publishedDate, publishedDate) || other.publishedDate == publishedDate)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.industryIdentifiers, industryIdentifiers)&&(identical(other.readingModes, readingModes) || other.readingModes == readingModes)&&(identical(other.pageCount, pageCount) || other.pageCount == pageCount)&&(identical(other.printType, printType) || other.printType == printType)&&const DeepCollectionEquality().equals(other.categories, categories)&&(identical(other.maturityRating, maturityRating) || other.maturityRating == maturityRating)&&(identical(other.allowAnonLogging, allowAnonLogging) || other.allowAnonLogging == allowAnonLogging)&&(identical(other.contentVersion, contentVersion) || other.contentVersion == contentVersion)&&(identical(other.panelizationSummary, panelizationSummary) || other.panelizationSummary == panelizationSummary)&&(identical(other.imageLinks, imageLinks) || other.imageLinks == imageLinks)&&(identical(other.language, language) || other.language == language)&&(identical(other.previewLink, previewLink) || other.previewLink == previewLink)&&(identical(other.infoLink, infoLink) || other.infoLink == infoLink)&&(identical(other.canonicalVolumeLink, canonicalVolumeLink) || other.canonicalVolumeLink == canonicalVolumeLink));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is VolumeInfo&&(identical(other.title, title) || other.title == title)&&(identical(other.subtitle, subtitle) || other.subtitle == subtitle)&&const DeepCollectionEquality().equals(other.authors, authors)&&(identical(other.publisher, publisher) || other.publisher == publisher)&&(identical(other.publishedDate, publishedDate) || other.publishedDate == publishedDate)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.industryIdentifiers, industryIdentifiers)&&(identical(other.readingModes, readingModes) || other.readingModes == readingModes)&&(identical(other.pageCount, pageCount) || other.pageCount == pageCount)&&(identical(other.printType, printType) || other.printType == printType)&&const DeepCollectionEquality().equals(other.categories, categories)&&(identical(other.maturityRating, maturityRating) || other.maturityRating == maturityRating)&&(identical(other.allowAnonLogging, allowAnonLogging) || other.allowAnonLogging == allowAnonLogging)&&(identical(other.contentVersion, contentVersion) || other.contentVersion == contentVersion)&&(identical(other.panelizationSummary, panelizationSummary) || other.panelizationSummary == panelizationSummary)&&(identical(other.imageLinks, imageLinks) || other.imageLinks == imageLinks)&&(identical(other.language, language) || other.language == language)&&(identical(other.previewLink, previewLink) || other.previewLink == previewLink)&&(identical(other.infoLink, infoLink) || other.infoLink == infoLink)&&(identical(other.canonicalVolumeLink, canonicalVolumeLink) || other.canonicalVolumeLink == canonicalVolumeLink)&&(identical(other.averageRating, averageRating) || other.averageRating == averageRating)&&(identical(other.ratingsCount, ratingsCount) || other.ratingsCount == ratingsCount));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,title,subtitle,const DeepCollectionEquality().hash(authors),publisher,publishedDate,description,const DeepCollectionEquality().hash(industryIdentifiers),readingModes,pageCount,printType,const DeepCollectionEquality().hash(categories),maturityRating,allowAnonLogging,contentVersion,panelizationSummary,imageLinks,language,previewLink,infoLink,canonicalVolumeLink]);
+int get hashCode => Object.hashAll([runtimeType,title,subtitle,const DeepCollectionEquality().hash(authors),publisher,publishedDate,description,const DeepCollectionEquality().hash(industryIdentifiers),readingModes,pageCount,printType,const DeepCollectionEquality().hash(categories),maturityRating,allowAnonLogging,contentVersion,panelizationSummary,imageLinks,language,previewLink,infoLink,canonicalVolumeLink,averageRating,ratingsCount]);
 
 @override
 String toString() {
-  return 'VolumeInfo(title: $title, subtitle: $subtitle, authors: $authors, publisher: $publisher, publishedDate: $publishedDate, description: $description, industryIdentifiers: $industryIdentifiers, readingModes: $readingModes, pageCount: $pageCount, printType: $printType, categories: $categories, maturityRating: $maturityRating, allowAnonLogging: $allowAnonLogging, contentVersion: $contentVersion, panelizationSummary: $panelizationSummary, imageLinks: $imageLinks, language: $language, previewLink: $previewLink, infoLink: $infoLink, canonicalVolumeLink: $canonicalVolumeLink)';
+  return 'VolumeInfo(title: $title, subtitle: $subtitle, authors: $authors, publisher: $publisher, publishedDate: $publishedDate, description: $description, industryIdentifiers: $industryIdentifiers, readingModes: $readingModes, pageCount: $pageCount, printType: $printType, categories: $categories, maturityRating: $maturityRating, allowAnonLogging: $allowAnonLogging, contentVersion: $contentVersion, panelizationSummary: $panelizationSummary, imageLinks: $imageLinks, language: $language, previewLink: $previewLink, infoLink: $infoLink, canonicalVolumeLink: $canonicalVolumeLink, averageRating: $averageRating, ratingsCount: $ratingsCount)';
 }
 
 
@@ -49,7 +49,7 @@ abstract mixin class $VolumeInfoCopyWith<$Res>  {
   factory $VolumeInfoCopyWith(VolumeInfo value, $Res Function(VolumeInfo) _then) = _$VolumeInfoCopyWithImpl;
 @useResult
 $Res call({
- String? title, String? subtitle, List<String>? authors, String? publisher, String? publishedDate, String? description, List<IndustryIdentifier>? industryIdentifiers, ReadingModes? readingModes, int? pageCount, String? printType, List<String>? categories, String? maturityRating, bool? allowAnonLogging, String? contentVersion, PanelizationSummary? panelizationSummary, ImageLinks? imageLinks, String? language, String? previewLink, String? infoLink, String? canonicalVolumeLink
+ String? title, String? subtitle, List<String>? authors, String? publisher, String? publishedDate, String? description, List<IndustryIdentifier>? industryIdentifiers, ReadingModes? readingModes, int? pageCount, String? printType, List<String>? categories, String? maturityRating, bool? allowAnonLogging, String? contentVersion, PanelizationSummary? panelizationSummary, ImageLinks? imageLinks, String? language, String? previewLink, String? infoLink, String? canonicalVolumeLink, double? averageRating, int? ratingsCount
 });
 
 
@@ -66,7 +66,7 @@ class _$VolumeInfoCopyWithImpl<$Res>
 
 /// Create a copy of VolumeInfo
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? title = freezed,Object? subtitle = freezed,Object? authors = freezed,Object? publisher = freezed,Object? publishedDate = freezed,Object? description = freezed,Object? industryIdentifiers = freezed,Object? readingModes = freezed,Object? pageCount = freezed,Object? printType = freezed,Object? categories = freezed,Object? maturityRating = freezed,Object? allowAnonLogging = freezed,Object? contentVersion = freezed,Object? panelizationSummary = freezed,Object? imageLinks = freezed,Object? language = freezed,Object? previewLink = freezed,Object? infoLink = freezed,Object? canonicalVolumeLink = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? title = freezed,Object? subtitle = freezed,Object? authors = freezed,Object? publisher = freezed,Object? publishedDate = freezed,Object? description = freezed,Object? industryIdentifiers = freezed,Object? readingModes = freezed,Object? pageCount = freezed,Object? printType = freezed,Object? categories = freezed,Object? maturityRating = freezed,Object? allowAnonLogging = freezed,Object? contentVersion = freezed,Object? panelizationSummary = freezed,Object? imageLinks = freezed,Object? language = freezed,Object? previewLink = freezed,Object? infoLink = freezed,Object? canonicalVolumeLink = freezed,Object? averageRating = freezed,Object? ratingsCount = freezed,}) {
   return _then(_self.copyWith(
 title: freezed == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String?,subtitle: freezed == subtitle ? _self.subtitle : subtitle // ignore: cast_nullable_to_non_nullable
@@ -88,7 +88,9 @@ as ImageLinks?,language: freezed == language ? _self.language : language // igno
 as String?,previewLink: freezed == previewLink ? _self.previewLink : previewLink // ignore: cast_nullable_to_non_nullable
 as String?,infoLink: freezed == infoLink ? _self.infoLink : infoLink // ignore: cast_nullable_to_non_nullable
 as String?,canonicalVolumeLink: freezed == canonicalVolumeLink ? _self.canonicalVolumeLink : canonicalVolumeLink // ignore: cast_nullable_to_non_nullable
-as String?,
+as String?,averageRating: freezed == averageRating ? _self.averageRating : averageRating // ignore: cast_nullable_to_non_nullable
+as double?,ratingsCount: freezed == ratingsCount ? _self.ratingsCount : ratingsCount // ignore: cast_nullable_to_non_nullable
+as int?,
   ));
 }
 /// Create a copy of VolumeInfo
@@ -135,7 +137,7 @@ $ImageLinksCopyWith<$Res>? get imageLinks {
 @JsonSerializable()
 
 class _VolumeInfo implements VolumeInfo {
-  const _VolumeInfo({this.title, this.subtitle, final  List<String>? authors, this.publisher, this.publishedDate, this.description, final  List<IndustryIdentifier>? industryIdentifiers, this.readingModes, this.pageCount, this.printType, final  List<String>? categories, this.maturityRating, this.allowAnonLogging, this.contentVersion, this.panelizationSummary, this.imageLinks, this.language, this.previewLink, this.infoLink, this.canonicalVolumeLink}): _authors = authors,_industryIdentifiers = industryIdentifiers,_categories = categories;
+  const _VolumeInfo({this.title, this.subtitle, final  List<String>? authors, this.publisher, this.publishedDate, this.description, final  List<IndustryIdentifier>? industryIdentifiers, this.readingModes, this.pageCount, this.printType, final  List<String>? categories, this.maturityRating, this.allowAnonLogging, this.contentVersion, this.panelizationSummary, this.imageLinks, this.language, this.previewLink, this.infoLink, this.canonicalVolumeLink, this.averageRating, this.ratingsCount}): _authors = authors,_industryIdentifiers = industryIdentifiers,_categories = categories;
   factory _VolumeInfo.fromJson(Map<String, dynamic> json) => _$VolumeInfoFromJson(json);
 
 @override final  String? title;
@@ -182,6 +184,8 @@ class _VolumeInfo implements VolumeInfo {
 @override final  String? previewLink;
 @override final  String? infoLink;
 @override final  String? canonicalVolumeLink;
+@override final  double? averageRating;
+@override final  int? ratingsCount;
 
 /// Create a copy of VolumeInfo
 /// with the given fields replaced by the non-null parameter values.
@@ -196,16 +200,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _VolumeInfo&&(identical(other.title, title) || other.title == title)&&(identical(other.subtitle, subtitle) || other.subtitle == subtitle)&&const DeepCollectionEquality().equals(other._authors, _authors)&&(identical(other.publisher, publisher) || other.publisher == publisher)&&(identical(other.publishedDate, publishedDate) || other.publishedDate == publishedDate)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other._industryIdentifiers, _industryIdentifiers)&&(identical(other.readingModes, readingModes) || other.readingModes == readingModes)&&(identical(other.pageCount, pageCount) || other.pageCount == pageCount)&&(identical(other.printType, printType) || other.printType == printType)&&const DeepCollectionEquality().equals(other._categories, _categories)&&(identical(other.maturityRating, maturityRating) || other.maturityRating == maturityRating)&&(identical(other.allowAnonLogging, allowAnonLogging) || other.allowAnonLogging == allowAnonLogging)&&(identical(other.contentVersion, contentVersion) || other.contentVersion == contentVersion)&&(identical(other.panelizationSummary, panelizationSummary) || other.panelizationSummary == panelizationSummary)&&(identical(other.imageLinks, imageLinks) || other.imageLinks == imageLinks)&&(identical(other.language, language) || other.language == language)&&(identical(other.previewLink, previewLink) || other.previewLink == previewLink)&&(identical(other.infoLink, infoLink) || other.infoLink == infoLink)&&(identical(other.canonicalVolumeLink, canonicalVolumeLink) || other.canonicalVolumeLink == canonicalVolumeLink));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _VolumeInfo&&(identical(other.title, title) || other.title == title)&&(identical(other.subtitle, subtitle) || other.subtitle == subtitle)&&const DeepCollectionEquality().equals(other._authors, _authors)&&(identical(other.publisher, publisher) || other.publisher == publisher)&&(identical(other.publishedDate, publishedDate) || other.publishedDate == publishedDate)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other._industryIdentifiers, _industryIdentifiers)&&(identical(other.readingModes, readingModes) || other.readingModes == readingModes)&&(identical(other.pageCount, pageCount) || other.pageCount == pageCount)&&(identical(other.printType, printType) || other.printType == printType)&&const DeepCollectionEquality().equals(other._categories, _categories)&&(identical(other.maturityRating, maturityRating) || other.maturityRating == maturityRating)&&(identical(other.allowAnonLogging, allowAnonLogging) || other.allowAnonLogging == allowAnonLogging)&&(identical(other.contentVersion, contentVersion) || other.contentVersion == contentVersion)&&(identical(other.panelizationSummary, panelizationSummary) || other.panelizationSummary == panelizationSummary)&&(identical(other.imageLinks, imageLinks) || other.imageLinks == imageLinks)&&(identical(other.language, language) || other.language == language)&&(identical(other.previewLink, previewLink) || other.previewLink == previewLink)&&(identical(other.infoLink, infoLink) || other.infoLink == infoLink)&&(identical(other.canonicalVolumeLink, canonicalVolumeLink) || other.canonicalVolumeLink == canonicalVolumeLink)&&(identical(other.averageRating, averageRating) || other.averageRating == averageRating)&&(identical(other.ratingsCount, ratingsCount) || other.ratingsCount == ratingsCount));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,title,subtitle,const DeepCollectionEquality().hash(_authors),publisher,publishedDate,description,const DeepCollectionEquality().hash(_industryIdentifiers),readingModes,pageCount,printType,const DeepCollectionEquality().hash(_categories),maturityRating,allowAnonLogging,contentVersion,panelizationSummary,imageLinks,language,previewLink,infoLink,canonicalVolumeLink]);
+int get hashCode => Object.hashAll([runtimeType,title,subtitle,const DeepCollectionEquality().hash(_authors),publisher,publishedDate,description,const DeepCollectionEquality().hash(_industryIdentifiers),readingModes,pageCount,printType,const DeepCollectionEquality().hash(_categories),maturityRating,allowAnonLogging,contentVersion,panelizationSummary,imageLinks,language,previewLink,infoLink,canonicalVolumeLink,averageRating,ratingsCount]);
 
 @override
 String toString() {
-  return 'VolumeInfo(title: $title, subtitle: $subtitle, authors: $authors, publisher: $publisher, publishedDate: $publishedDate, description: $description, industryIdentifiers: $industryIdentifiers, readingModes: $readingModes, pageCount: $pageCount, printType: $printType, categories: $categories, maturityRating: $maturityRating, allowAnonLogging: $allowAnonLogging, contentVersion: $contentVersion, panelizationSummary: $panelizationSummary, imageLinks: $imageLinks, language: $language, previewLink: $previewLink, infoLink: $infoLink, canonicalVolumeLink: $canonicalVolumeLink)';
+  return 'VolumeInfo(title: $title, subtitle: $subtitle, authors: $authors, publisher: $publisher, publishedDate: $publishedDate, description: $description, industryIdentifiers: $industryIdentifiers, readingModes: $readingModes, pageCount: $pageCount, printType: $printType, categories: $categories, maturityRating: $maturityRating, allowAnonLogging: $allowAnonLogging, contentVersion: $contentVersion, panelizationSummary: $panelizationSummary, imageLinks: $imageLinks, language: $language, previewLink: $previewLink, infoLink: $infoLink, canonicalVolumeLink: $canonicalVolumeLink, averageRating: $averageRating, ratingsCount: $ratingsCount)';
 }
 
 
@@ -216,7 +220,7 @@ abstract mixin class _$VolumeInfoCopyWith<$Res> implements $VolumeInfoCopyWith<$
   factory _$VolumeInfoCopyWith(_VolumeInfo value, $Res Function(_VolumeInfo) _then) = __$VolumeInfoCopyWithImpl;
 @override @useResult
 $Res call({
- String? title, String? subtitle, List<String>? authors, String? publisher, String? publishedDate, String? description, List<IndustryIdentifier>? industryIdentifiers, ReadingModes? readingModes, int? pageCount, String? printType, List<String>? categories, String? maturityRating, bool? allowAnonLogging, String? contentVersion, PanelizationSummary? panelizationSummary, ImageLinks? imageLinks, String? language, String? previewLink, String? infoLink, String? canonicalVolumeLink
+ String? title, String? subtitle, List<String>? authors, String? publisher, String? publishedDate, String? description, List<IndustryIdentifier>? industryIdentifiers, ReadingModes? readingModes, int? pageCount, String? printType, List<String>? categories, String? maturityRating, bool? allowAnonLogging, String? contentVersion, PanelizationSummary? panelizationSummary, ImageLinks? imageLinks, String? language, String? previewLink, String? infoLink, String? canonicalVolumeLink, double? averageRating, int? ratingsCount
 });
 
 
@@ -233,7 +237,7 @@ class __$VolumeInfoCopyWithImpl<$Res>
 
 /// Create a copy of VolumeInfo
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? title = freezed,Object? subtitle = freezed,Object? authors = freezed,Object? publisher = freezed,Object? publishedDate = freezed,Object? description = freezed,Object? industryIdentifiers = freezed,Object? readingModes = freezed,Object? pageCount = freezed,Object? printType = freezed,Object? categories = freezed,Object? maturityRating = freezed,Object? allowAnonLogging = freezed,Object? contentVersion = freezed,Object? panelizationSummary = freezed,Object? imageLinks = freezed,Object? language = freezed,Object? previewLink = freezed,Object? infoLink = freezed,Object? canonicalVolumeLink = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? title = freezed,Object? subtitle = freezed,Object? authors = freezed,Object? publisher = freezed,Object? publishedDate = freezed,Object? description = freezed,Object? industryIdentifiers = freezed,Object? readingModes = freezed,Object? pageCount = freezed,Object? printType = freezed,Object? categories = freezed,Object? maturityRating = freezed,Object? allowAnonLogging = freezed,Object? contentVersion = freezed,Object? panelizationSummary = freezed,Object? imageLinks = freezed,Object? language = freezed,Object? previewLink = freezed,Object? infoLink = freezed,Object? canonicalVolumeLink = freezed,Object? averageRating = freezed,Object? ratingsCount = freezed,}) {
   return _then(_VolumeInfo(
 title: freezed == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String?,subtitle: freezed == subtitle ? _self.subtitle : subtitle // ignore: cast_nullable_to_non_nullable
@@ -255,7 +259,9 @@ as ImageLinks?,language: freezed == language ? _self.language : language // igno
 as String?,previewLink: freezed == previewLink ? _self.previewLink : previewLink // ignore: cast_nullable_to_non_nullable
 as String?,infoLink: freezed == infoLink ? _self.infoLink : infoLink // ignore: cast_nullable_to_non_nullable
 as String?,canonicalVolumeLink: freezed == canonicalVolumeLink ? _self.canonicalVolumeLink : canonicalVolumeLink // ignore: cast_nullable_to_non_nullable
-as String?,
+as String?,averageRating: freezed == averageRating ? _self.averageRating : averageRating // ignore: cast_nullable_to_non_nullable
+as double?,ratingsCount: freezed == ratingsCount ? _self.ratingsCount : ratingsCount // ignore: cast_nullable_to_non_nullable
+as int?,
   ));
 }
 

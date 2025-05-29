@@ -43,6 +43,8 @@ _VolumeInfo _$VolumeInfoFromJson(Map<String, dynamic> json) => _VolumeInfo(
   previewLink: json['previewLink'] as String?,
   infoLink: json['infoLink'] as String?,
   canonicalVolumeLink: json['canonicalVolumeLink'] as String?,
+  averageRating: (json['averageRating'] as num?)?.toDouble(),
+  ratingsCount: (json['ratingsCount'] as num?)?.toInt(),
 );
 
 Map<String, dynamic> _$VolumeInfoToJson(_VolumeInfo instance) =>
@@ -67,4 +69,6 @@ Map<String, dynamic> _$VolumeInfoToJson(_VolumeInfo instance) =>
       'previewLink': instance.previewLink,
       'infoLink': instance.infoLink,
       'canonicalVolumeLink': instance.canonicalVolumeLink,
+      'averageRating': instance.averageRating,
+      'ratingsCount': instance.ratingsCount,
     };

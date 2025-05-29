@@ -31,6 +31,8 @@ abstract class VolumeInfo with _$VolumeInfo {
     String? previewLink,
     String? infoLink,
     String? canonicalVolumeLink,
+    double? averageRating,
+    int? ratingsCount,
   }) = _VolumeInfo;
 
   factory VolumeInfo.fromJson(Map<String, dynamic> json) =>

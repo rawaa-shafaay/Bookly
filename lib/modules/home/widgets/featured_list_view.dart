@@ -1,5 +1,5 @@
 import 'package:bookly/core/widgets/error_message.dart';
-import 'package:bookly/modules/home/cubit/featured_books_cubit.dart';
+import 'package:bookly/modules/home/bloc/featured_books/featured_books_cubit.dart';
 import 'package:bookly/modules/home/widgets/book_cover_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,7 +22,7 @@ class FeaturedBooksListView extends StatelessWidget {
 
             return ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: books.length,
+              itemCount: state.books.length,
               itemBuilder: (context, index) {
                 final book = books[index];
                 final thumbnailUrl =
