@@ -7,19 +7,21 @@ class CommonButton extends StatelessWidget {
     required this.textColor,
     required this.backGroundColor,
     this.borderRadius,
+    this.onTap,
   });
 
   final String text;
   final Color textColor;
   final Color backGroundColor;
   final BorderRadius? borderRadius;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 43,
       child: TextButton(
-        onPressed: () {},
+        onPressed: onTap,
         style: TextButton.styleFrom(
           backgroundColor: backGroundColor,
           shape: RoundedRectangleBorder(

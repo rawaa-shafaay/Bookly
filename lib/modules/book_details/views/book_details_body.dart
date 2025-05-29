@@ -34,15 +34,18 @@ class BookDetailsBody extends StatelessWidget {
               child: Column(
                 children: [
                   _buildAppBar(),
-                  _buildCoverImage(context, bookModel),
-                  _buildTitleAndAuthor(bookModel),
-                  const BookRating(
+                  _buildCoverImage(context),
+                  _buildTitleAndAuthor(),
+                  BookRating(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    rating: 0,
-                    count: 0,
+                    rating: bookModel.volumeInfo?.averageRating ?? 0.0,
+                    count: bookModel.volumeInfo?.ratingsCount ?? 0,
                   ),
                   const SizedBox(height: 37),
-                  const BookActionButtons(),
+                  BookActionButtons(
+                    saleInfo: bookModel.saleInfo,
+                    previewLink: bookModel.volumeInfo?.previewLink ?? '',
+                  ),
                   const SizedBox(height: 50),
                   _buildSectionTitle(),
                   const SizedBox(height: 10),
@@ -58,7 +61,7 @@ class BookDetailsBody extends StatelessWidget {
 
   Widget _buildAppBar() => const BookDetailsAppBar();
 
-  Widget _buildCoverImage(BuildContext context, Book bookModel) {
+  Widget _buildCoverImage(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: width * .27),
@@ -68,7 +71,7 @@ class BookDetailsBody extends StatelessWidget {
     );
   }
 
-  Widget _buildTitleAndAuthor(Book bookModel) => Column(
+  Widget _buildTitleAndAuthor() => Column(
     children: [
       const SizedBox(height: 26),
       Text(
