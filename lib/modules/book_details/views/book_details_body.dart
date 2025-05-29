@@ -2,12 +2,15 @@ import 'package:bookly/core/theme/app_text_styles.dart';
 import 'package:bookly/modules/book_details/widgets/book_action_buttons.dart';
 import 'package:bookly/modules/book_details/widgets/book_details_app_bar.dart';
 import 'package:bookly/modules/book_details/widgets/similar_books_section.dart';
+import 'package:bookly/modules/home/models/book.dart';
 import 'package:bookly/modules/home/widgets/book_rating.dart';
 import 'package:bookly/modules/home/widgets/book_cover_image.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsBody extends StatelessWidget {
-  const BookDetailsBody({super.key});
+  const BookDetailsBody({super.key, required this.bookModel});
+
+  final Book bookModel;
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +34,8 @@ class BookDetailsBody extends StatelessWidget {
               child: Column(
                 children: [
                   _buildAppBar(),
-                  _buildCoverImage(context),
-                  _buildTitleAndAuthor(),
+                  _buildCoverImage(context, bookModel),
+                  _buildTitleAndAuthor(bookModel),
                   const BookRating(
                     mainAxisAlignment: MainAxisAlignment.center,
                     rating: 0,
@@ -55,32 +58,34 @@ class BookDetailsBody extends StatelessWidget {
 
   Widget _buildAppBar() => const BookDetailsAppBar();
 
-  Widget _buildCoverImage(BuildContext context) {
+  Widget _buildCoverImage(BuildContext context, Book bookModel) {
     final width = MediaQuery.of(context).size.width;
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: width * .27),
-      child: const BookCoverImage(
-        imageUrl:
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCHo3CkaH0oRY3MvrEN0xgn-x_Lsn3Lm3lVQ&s',
+      child: BookCoverImage(
+        imageUrl: bookModel.volumeInfo?.imageLinks?.thumbnail ?? '',
       ),
     );
   }
 
-  Widget _buildTitleAndAuthor() => Column(
-    children: const [
-      SizedBox(height: 26),
+  Widget _buildTitleAndAuthor(Book bookModel) => Column(
+    children: [
+      const SizedBox(height: 26),
       Text(
-        'I Hid My Voice',
+        bookModel.volumeInfo?.title ?? '',
         style: AppTextStyles.textStyle30,
         maxLines: 2,
         overflow: TextOverflow.ellipsis,
       ),
-      SizedBox(height: 2),
+      const SizedBox(height: 2),
       Opacity(
         opacity: 0.7,
-        child: Text('J.K. Rowling', style: AppTextStyles.textStyle18),
+        child: Text(
+          bookModel.volumeInfo?.authors?.join(',') ?? '',
+          style: AppTextStyles.textStyle18,
+        ),
       ),
-      SizedBox(height: 10),
+      const SizedBox(height: 10),
     ],
   );
 

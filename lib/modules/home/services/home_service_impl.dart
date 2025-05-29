@@ -15,7 +15,9 @@ class HomeServiceImpl implements HomeService {
   @override
   Future<Either<Failure, List<Book>>> fetchBestSellerBooks() async {
     try {
-      final data = await apiService.get(endPoint: 'volumes?q=*&orderBy=newest');
+      final data = await apiService.get(
+        endPoint: 'volumes?q=subject:best%20seller&orderBy=newest',
+      );
       final response = BookResponse.fromJson(data);
 
       return Right(response.items ?? []);
@@ -29,7 +31,9 @@ class HomeServiceImpl implements HomeService {
   @override
   Future<Either<Failure, List<Book>>> fetchFeaturedBooks() async {
     try {
-      final data = await apiService.get(endPoint: 'volumes?q=*');
+      final data = await apiService.get(
+        endPoint: 'volumes?q=mobile+development&orderBy=relevance',
+      );
       final response = BookResponse.fromJson(data);
       return Right(response.items ?? []);
     } on DioException catch (e) {

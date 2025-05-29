@@ -30,7 +30,7 @@ class BestSellerListViewItem extends StatelessWidget {
           context,
           PageTransition(
             type: PageTransitionType.fade,
-            child: const BookDetailsView(),
+            child: BookDetailsView(bookModel: bookModel),
           ),
         );
       },
