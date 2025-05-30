@@ -1,6 +1,5 @@
 import 'package:bookly/core/di/service_locator.dart';
 import 'package:bookly/modules/search/bloc/cubit/search_cubit.dart';
-import 'package:bookly/modules/search/services/search_service.dart';
 import 'package:bookly/modules/search/views/search_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,9 +10,7 @@ class SearchView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (_) => SearchCubit(getIt.get<SearchService>())),
-      ],
+      providers: [BlocProvider(create: (_) => getIt<SearchCubit>())],
 
       child: GestureDetector(
         behavior: HitTestBehavior.translucent,
