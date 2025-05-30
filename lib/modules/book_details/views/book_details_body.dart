@@ -35,6 +35,7 @@ class BookDetailsBody extends StatelessWidget {
                 children: [
                   _buildAppBar(),
                   _buildCoverImage(context),
+                  const SizedBox(height: 9),
                   _buildTitleAndAuthor(),
                   BookRating(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -71,25 +72,31 @@ class BookDetailsBody extends StatelessWidget {
     );
   }
 
-  Widget _buildTitleAndAuthor() => Column(
-    children: [
-      const SizedBox(height: 26),
-      Text(
-        bookModel.volumeInfo?.title ?? '',
-        style: AppTextStyles.textStyle30,
-        maxLines: 2,
-        overflow: TextOverflow.ellipsis,
-      ),
-      const SizedBox(height: 2),
-      Opacity(
-        opacity: 0.7,
-        child: Text(
-          bookModel.volumeInfo?.authors?.join(',') ?? '',
-          style: AppTextStyles.textStyle18,
+  Widget _buildTitleAndAuthor() => Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 19),
+    child: Column(
+      children: [
+        const SizedBox(height: 8),
+        Text(
+          bookModel.volumeInfo?.title ?? '',
+          style: AppTextStyles.textStyle30,
+          textAlign: TextAlign.center,
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
         ),
-      ),
-      const SizedBox(height: 10),
-    ],
+        const SizedBox(height: 9),
+        Opacity(
+          opacity: 0.7,
+          child: Text(
+            bookModel.volumeInfo?.authors?.join(',') ?? '',
+            style: AppTextStyles.textStyle18,
+            textAlign: TextAlign.center,
+            maxLines: 2,
+          ),
+        ),
+        const SizedBox(height: 10),
+      ],
+    ),
   );
 
   Widget _buildSectionTitle() => Padding(
