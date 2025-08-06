@@ -1,6 +1,6 @@
 import 'package:bookly/core/di/service_locator.dart';
 import 'package:bookly/core/theme/app_theme.dart';
-import 'package:bookly/modules/splash/views/splash_view.dart';
+import 'package:bookly/features/splash/views/splash_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {

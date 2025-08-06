@@ -1,34 +1,46 @@
 import 'package:dio/dio.dart';
 
-abstract class Failure {
+sealed class Failure {
   final String message;
+  const Failure(this.message);
 
-  Failure(this.message);
+  @override
+  String toString() => '$runtimeType: $message';
 }
 
 class ServerFailure extends Failure {
-  ServerFailure(super.message);
+  final int? code;
+  const ServerFailure(super.message, {this.code});
 
   factory ServerFailure.fromDioException(DioException e) {
     switch (e.type) {
       case DioExceptionType.connectionTimeout:
-        return ServerFailure("Connection timed out. Please try again.");
+        return const ServerFailure("Connection timed out. Please try again.");
       case DioExceptionType.sendTimeout:
-        return ServerFailure("The request took too long to send.");
+        return const ServerFailure("The request took too long to send.");
       case DioExceptionType.receiveTimeout:
-        return ServerFailure("The server took too long to respond.");
+        return const ServerFailure("The server took too long to respond.");
       case DioExceptionType.cancel:
-        return ServerFailure("The request was cancelled.");
+        return const ServerFailure("The request was cancelled.");
       case DioExceptionType.connectionError:
-        return ServerFailure(
+        return const ServerFailure(
           "No internet connection. Please check your network.",
         );
+
       case DioExceptionType.badResponse:
         final statusCode = e.response?.statusCode ?? 0;
         final statusMessage = e.response?.statusMessage ?? 'Unknown';
 
-        final message = _mapStatusCodeToMessage(statusCode, statusMessage);
-        return ServerFailure(message);
+        final bodyMessage = _extractErrorMessage(e.response);
+        final fallbackMessage = _mapStatusCodeToMessage(
+          statusCode,
+          statusMessage,
+        );
+
+        return ServerFailure(
+          bodyMessage.isNotEmpty ? bodyMessage : fallbackMessage,
+          code: statusCode,
+        );
 
       case DioExceptionType.unknown:
       default:
@@ -53,5 +65,15 @@ class ServerFailure extends Failure {
       default:
         return "Server error [$statusCode]: $statusMessage";
     }
+  }
+
+  static String _extractErrorMessage(Response? response) {
+    try {
+      final data = response?.data;
+      if (data is Map<String, dynamic> && data.containsKey('message')) {
+        return data['message'] as String;
+      }
+    } catch (_) {}
+    return '';
   }
 }
